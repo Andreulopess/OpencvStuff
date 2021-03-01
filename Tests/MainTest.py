@@ -5,6 +5,7 @@ from MansXarxa import demo2 as hand
 from MansXarxa.yolo import YOLO
 
 # https://pysource.com/2019/06/27/yolo-object-detection-using-opencv-with-python/
+#Joer macho
 yolo = YOLO("MansXarxa/models/cross-hands.cfg", "MansXarxa/models/cross-hands.weights", ["hand"])
 
 #   Carregar foto
