@@ -4,4 +4,4 @@ Básicamente se trata de programación en Python y OpenCV, para el tratamiento d
 enfocadas al comportamiento de un robot NAO
 
 ## Mapa conceptual
-![alt Mapa conceptual](MapaConcept.svg)
+![alt Mapa conceptual](MapaConcept..png)
