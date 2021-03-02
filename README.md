@@ -13,7 +13,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="ImatgesBase/Logo%20uib.png" alt="Logo" width="80" height="80">
+    <img src="ImatgesBase/Logo%20uib2.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">TFG Andreu López</h3>
@@ -25,7 +25,7 @@
     <br />
     <a href="https://appseps.uib.es/tfg2.0/index2.php?accio=MostraPDF.php&ref=EPSU1628&tipus=proposta&error=no&clau=4480">Ver propuesta</a>
     ·
-    <a href="https://github.com/Andreulopess/OpencvStuff/issues">Request Feature</a>
+    <a href="https://github.com/Andreulopess/OpencvStuff/issues">Propuesta de mejoras</a>
   </p>
 
 
@@ -182,15 +182,15 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
-[contributors-url]: https://github.com/othneildrew/Best-README-Template/graphs/contributors
+[contributors-url]: https://github.com/Andreulopess/OpencvStuff/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
-[forks-url]: https://github.com/othneildrew/Best-README-Template/network/members
+[forks-url]: https://github.com/Andreulopess/OpencvStuff/network/members
 [stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
+[stars-url]: https://github.com/Andreulopess/OpencvStuff/stargazers
 [issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
+[issues-url]: https://github.com/Andreulopess/OpencvStuff/issues
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[license-url]: https://github.com/Andreulopess/OpencvStuff/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
+[linkedin-url]: https://www.linkedin.com/in/andreu-l%C3%B3pez-cort%C3%A8s-5b38846a/
 [product-screenshot]: images/screenshot.png
