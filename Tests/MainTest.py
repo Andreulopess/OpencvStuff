@@ -10,8 +10,8 @@ yolo = YOLO("MansXarxa/models/cross-hands.cfg", "MansXarxa/models/cross-hands.we
 
 #   Carregar foto
 
-img = cv2.imread("Imatges/ErwanMaAdalt.png")
-img2 = cv2.imread("Imatges/ErweanMaAbix.png")
+img = cv2.imread("Imatges/Maadalt.jpg")
+img2 = cv2.imread("Imatges/Mabaix.jpg")
 
 # Aillar persona (Detector persona)
 # ALERTA AMB DIRECCIÓ DINS  Detctor persona

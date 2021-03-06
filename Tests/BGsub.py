@@ -5,8 +5,8 @@ import cv2
 
 # ---------------------DEFINICI0 DE VARIABLES----------------
 
-maadalt = cv2.imread("Imatges/t1.png")
-maabaix = cv2.imread("Imatges/T2.png")
+maadalt = cv2.imread("Imatges/Maadalt.jpg")
+maabaix = cv2.imread("Imatges/Mabaix.jpg")
 cv2.imshow("Ex", np.hstack([maadalt, maabaix]))
 
 # definim array
