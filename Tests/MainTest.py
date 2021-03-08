@@ -1,6 +1,7 @@
 import cv2
 from MansXarxa.models import DetectorPersona as dp
 from MansXarxa import demo2 as hand
+import imutils
 
 from MansXarxa.yolo import YOLO
 
@@ -10,8 +11,11 @@ yolo = YOLO("MansXarxa/models/cross-hands.cfg", "MansXarxa/models/cross-hands.we
 
 #   Carregar foto
 
-img = cv2.imread("Imatges/Maadalt.jpg")
-img2 = cv2.imread("Imatges/Mabaix.jpg")
+img = cv2.imread("Imatges/Test1.png")
+img2 = cv2.imread("Imatges/Test2.png")
+
+img= imutils.resize(img, width=1200)
+img2= imutils.resize(img2, width=1200)
 
 # Aillar persona (Detector persona)
 # ALERTA AMB DIRECCIÓ DINS  Detctor persona

@@ -5,9 +5,15 @@ import cv2
 
 # ---------------------DEFINICI0 DE VARIABLES----------------
 
-maadalt = cv2.imread("Imatges/Maadalt.jpg")
-maabaix = cv2.imread("Imatges/Mabaix.jpg")
+maadalt = cv2.imread("Imatges/Test1.png")
+maabaix = cv2.imread("Imatges/Test2.png")
+
+
+maadalt= imutils.resize(maadalt, width=800)
+maabaix= imutils.resize(maabaix, width=800)
+
 cv2.imshow("Ex", np.hstack([maadalt, maabaix]))
+
 
 # definim array
 lower = np.array([0, 10, 60], dtype="uint8")

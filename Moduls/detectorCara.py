@@ -12,7 +12,9 @@ def facedetect(foto):  # Se pasa la foto deseada
                                          minSize=(30, 30),
                                          maxSize=(200, 200))
     for (x, y, w, h) in faces:
-        cv2.rectangle(foto, (x - 20, y - 20), (x + w + 20, y + h + 20), (0, 255, 0), 1)
+        marginX = int(x/50)
+        marginY = int(y/50)
+        cv2.rectangle(foto, (x-marginX, y-marginY), (x+w+marginX, y+h+marginY), (0, 255, 0), 1)
 
 
 #   Deteccio de cara, si troba cara la tapa amb en quadrat negre
@@ -57,3 +59,4 @@ def facecircle(image):
     mask = mask[y:y + h, x:x + w]
     result[mask == 0] = (255, 255, 255)
     return result
+
