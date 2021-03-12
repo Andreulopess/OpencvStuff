@@ -1,18 +1,23 @@
 import imutils
 import numpy as np
 from Moduls import detectorCara as fd
+from MansXarxa.models import DetectorPersona as dp
 import cv2
 
-# ---------------------DEFINICI0 DE VARIABLES----------------
+# ---------------------DEFINICI0 DE VARIABLES----------------q
 
-maadalt = cv2.imread("Imatges/Test1.png")
-maabaix = cv2.imread("Imatges/Test2.png")
+maadalt = cv2.imread("Imatges/Cabres.jpeg")
+maabaix = cv2.imread("Imatges/Cabres2.jpeg")
 
 
-maadalt= imutils.resize(maadalt, width=800)
-maabaix= imutils.resize(maabaix, width=800)
+maadalt= imutils.resize(maadalt, width=1200)
+maabaix= imutils.resize(maabaix, width=1200)
 
-cv2.imshow("Ex", np.hstack([maadalt, maabaix]))
+cv2.imshow("Ex",    np.hstack([maadalt, maabaix]))
+
+maadalt, xinicial, yinicial = dp.trobarpersona(maadalt)
+maabaix, xinicial, yinicial = dp.trobarpersona(maabaix)
+
 
 
 # definim array
@@ -63,7 +68,7 @@ skinMaabaix = cv2.putText(skinMaabaix, 'Imatge 1', (50, 50), cv2.FONT_HERSHEY_SI
 
 # show the skin in the image along with the mask
 
-cv2.imshow("Ma adalt i abaix", np.hstack([skinMaabaix, skinMaadalt]))
+#cv2.imshow("Ma adalt i abaix", np.hstack([skinMaabaix, skinMaadalt]))
 
 cv2.imwrite("Ma_abaix.jpg", skinMaabaix)
 cv2.imwrite("Ma_adalt.jpg", skinMaadalt)

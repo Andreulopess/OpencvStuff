@@ -5,20 +5,33 @@ faceClassif = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 
 
 #   Deteccio de cara, si troba cara la requadra amb en quadrat verd
-def facedetect(foto):  # Se pasa la foto deseada
+def facedetect(foto):
+    """
+    Fucnión que recuadra la cara o caras de una iamagen
+    :param foto: objeto imagen
+    :return: none
+    """
     faces = faceClassif.detectMultiScale(foto,
                                          scaleFactor=1.1,
                                          minNeighbors=5,
                                          minSize=(30, 30),
                                          maxSize=(200, 200))
     for (x, y, w, h) in faces:
-        marginX = int(x/50)
-        marginY = int(y/50)
-        cv2.rectangle(foto, (x-marginX, y-marginY), (x+w+marginX, y+h+marginY), (0, 255, 0), 1)
+        marginX = int(x / 50)
+        marginY = int(y / 50)
+    try:
+        cv2.rectangle(foto, (x - marginX, y - marginY), (x + w + marginX, y + h + marginY), (0, 255, 0), 1)
+    except:
+        print("No se han encontrado caras")
 
 
 #   Deteccio de cara, si troba cara la tapa amb en quadrat negre
-def facecover(foto):  # Se pasa la foto deseada
+def facecover(foto):
+    """
+    Función que tapa de forma cuadrada la cara de un usuario
+    :param foto: objeto imagen
+    :return: devuelve la imagen con la cara tapada
+    """
     faces = faceClassif.detectMultiScale(foto,
                                          scaleFactor=1.1,
                                          minNeighbors=5,
@@ -32,18 +45,22 @@ def facecover(foto):  # Se pasa la foto deseada
 
 
 def facecircle(image):
+    """
+    Función que crea una mascara circular si detecta una cara en la imagen
+    :param image: obeto imagen
+    :return: mascara aplicada a la imagen
+    """
     faces = faceClassif.detectMultiScale(image,
                                          scaleFactor=1.1,
                                          minNeighbors=5,
+
                                          minSize=(30, 30),
                                          maxSize=(200, 200))
 
     for (x, y, w, h) in faces:
         center_coordinates = x + w // 2, y + h // 2
         radius = w // 2  # or can be h / 2 or can be anything based on your requirements
-        #cv2.circle(foto, center_coordinates, radius, (0, 0, 100), 0)
-
-
+        # cv2.circle(foto, center_coordinates, radius, (0, 0, 100), 0)
 
     mask = np.zeros(image.shape, dtype=np.uint8)
     cv2.circle(mask, center_coordinates, radius, (255, 255, 255), -1)
@@ -60,3 +77,23 @@ def facecircle(image):
     result[mask == 0] = (255, 255, 255)
     return result
 
+
+def centresFoto(foto):
+    """
+    Función que devuelve las coordenadas del centro de la persona
+    :param foto: objeto imagen
+    :return: centroX, centroY
+    """
+    width, height, e = foto.shape
+    faces = faceClassif.detectMultiScale(foto,
+                                         scaleFactor=1.1,
+                                         minNeighbors=5,
+                                         minSize=(30, 30),
+                                         maxSize=(200, 200))
+    for (x, y, w, h) in faces:
+        centrey = int(y + (w / 2))
+        centrex = int(x + (h / 2))
+    try:
+        return centrex, centrey
+    except:
+        print("No se han encontrado caras")

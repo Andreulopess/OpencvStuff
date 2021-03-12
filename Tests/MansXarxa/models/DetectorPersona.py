@@ -15,7 +15,7 @@ colors = np.random.uniform(0, 255, size=(len(classes), 3))
 def trobarpersona(img):
     # Loading image
     # img = cv2.imread("Maadalt.jpg")
-    img = cv2.resize(img, None, fx=0.4, fy=0.4)
+    #img = cv2.resize(img, None, fx=0.4, fy=0.4)
     height, width, channels = img.shape
 
     # Detecting objects
@@ -61,7 +61,7 @@ def trobarpersona(img):
 
             # label = str(classes[class_ids[i]])
             color = (222,0,223)
-            cv2.rectangle(img, (x1, y1), (x2, y2), color, 2)
+            #cv2.rectangle(img, (x1, y1), (x2, y2), color, 2)
             # cv2.putText(img, label, (x1, y + 30), font, 3, color, 3)
 
             crop_img = img[y1:y2, x1:x2]

@@ -1,11 +1,10 @@
 import cv2
 from Moduls import detectorCara as dc
 import imutils
-from MansXarxa import demo2 as d2
-
-imatge = cv2.imread("Imatges/Mabaix.jpg")
-imatge = imutils.resize(imatge,width=800)
-dc.facecover(imatge)
-cv2.imshow("Resultat",imatge)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+import MainTest as lolaso
+i1 = cv2.imread("Imatges/Mabaix.jpg")
+i2 = cv2.imread("Imatges/Maadalt.jpg")
+lolaso.main(i1,i2)
+if cv2.waitKey(0) & 0xFF == ord("q"):
+    cv2.destroyAllWindows()
+    exit()

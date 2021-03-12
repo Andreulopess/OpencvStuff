@@ -21,7 +21,7 @@ def checkMoviment(img1, img2):
     # open or read the images
     img1 = cv2.imread('Ma_abaix.jpg')
     img2 = cv2.imread('Ma_adalt.jpg')
-    cv2.imshow("Ex", np.hstack([img1, img2]))
+
 
     # resize the images to speed up processing
     img1 = cv2.resize(img1, (640, 480))
