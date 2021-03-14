@@ -26,19 +26,19 @@ yolo = YOLO("MansXarxa/models/cross-hands.cfg", "MansXarxa/models/cross-hands.we
 
 #   Carregar foto
 def main(img,img2):
+    nomFoto = str(img)
+
    # img = cv2.imread("Imatges/Mabaix.jpg")
     #img2 = cv2.imread("Imatges/Maadalt.jpg")
 
-    img = imutils.resize(img, 800)
-    img2 = imutils.resize(img2, 800)
 
     #   Guardam centres de cara per utilitzar mes tard
-    centreXImg1, centreYImg1 = dc.centresFoto(img)
-    centreXImg2, centreYImg2 = dc.centresFoto(img2)
+    #centreXImg1, centreYImg1 = dc.centresFoto(img)
+   # centreXImg2, centreYImg2 = dc.centresFoto(img2)
 
     # Aïllar persona (Detector persona)
     # ALERTA AMB DIRECCIÓ DINS  Detctor persona
-    crop, xinicial, yinicial = dp.trobarpersona(img)
+    crop = img
 
     # Cercam mans
     if hand.punts(crop, yolo) == -1:
@@ -57,13 +57,15 @@ def main(img,img2):
         cy = int(y2 - hma / 2)
         # Dibuixam rectangle
         cv2.rectangle(crop, (x1primera, y1primera), (x2, y2), (0, 255, 0), 1)
-        cv2.imshow("Crop1", crop)
+        #cv2.imshow("Crop1", crop)
 
         #   Mostram imatge amb rectangle
 
     # Aillar persona (Detector persona)
     # ALERTA AMB DIRECCIÓ DINS  Detctor persona
-    crop2, lol1, lol2 = dp.trobarpersona(img2)
+
+
+    crop2 = img2
     if hand.punts(crop2, yolo) == -1:
         # Aqui cridariem a colorPell
         print("No s'han trobat mans a la imatge 2")
@@ -82,21 +84,22 @@ def main(img,img2):
         cv2.rectangle(crop2, (x1segona, y1segona), (x2, y2), (0, 255, 0), 1)
 
         #   Mostram imatge amb rectangle
-        cv2.imshow("Crop2", crop2)
+        #cv2.imshow("Crop2", crop2)
 
-    try:
-        if (cy>centreYImg1):
+        cv2.line(img, (cx, cy), ( cx2, cy2), (0, 233, 0), 2)
+    '''try:
+       # if (cy>centreYImg1):
             print("Per ma esquerra tenim: ")
             moviment(cx, cy, cx2, cy2)
 
         # img = cv2.resize(img, None, fx=0.4, fy=0.4)
-        cv2.line(img, (xinicial + cx, yinicial + cy), (xinicial + cx2, yinicial + cy2), (0, 233, 0), 2)
+        
 
     except NameError:
         print("CUIDAO! Variables de posició per fer linia entre mans no definides")
-
+'''
     # Mostram a imatge final
-    cv2.imshow("Final", img)
+    cv2.imshow(nomFoto, img)
 
 
 

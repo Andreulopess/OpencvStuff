@@ -97,3 +97,28 @@ def centresFoto(foto):
         return centrex, centrey
     except:
         print("No se han encontrado caras")
+
+def cropDretaEsq(foto):
+    """
+      Función que devuelve dos imagenes cropeadas segun la cara
+      :param foto: objeto imagen
+      :return: dreta, esquerra
+      """
+    height, width, e = foto.shape
+    faces = faceClassif.detectMultiScale(foto,
+                                         scaleFactor=1.1,
+                                         minNeighbors=5,
+                                         minSize=(30, 30),
+                                         maxSize=(200, 200))
+    for (x, y, w, h) in faces:
+        centrey = int(y + (w / 2))
+        centrex = int(x + (h / 2))
+    try:
+        dreta = foto[0:height, 0:centrex]
+        esquerra = foto[0:height, centrex:width]
+        return dreta, esquerra
+    except:
+        print("No s'ha trobat cara")
+
+
+

@@ -10,7 +10,7 @@ def punts(mat,yolo):
 
     if not results:
         #   Aqui hauriem de cridar a l'altre metode
-        print("No hi ha mans dins demo2.py")
+
         return -1
 
     #   Si tenim una ma com a mínim, cream finestra i mostram
