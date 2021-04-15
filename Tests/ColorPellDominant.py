@@ -3,14 +3,26 @@ import numpy as np
 import imutils
 from matplotlib import pyplot as plt
 from Moduls import detectorCara as dc
+import os
 
 
 
 
-image = cv2.imread('Imatges/t1.png')
+image = cv2.imread('Imatges/Mabaix.jpg')
 image = imutils.resize(image,width=800)
 cv2.imshow('inicial', image)
 result= dc.facecircle(image)
+
+sizeX = result.shape[1]
+sizeY = result.shape[0]
+nRows = 4
+nCols = 1
+for i in range(0, nRows):
+    for j in range(0, nCols):
+        print(j)
+        roi = result[(int) (i * sizeY / nRows):(int)(i * sizeY / nRows + sizeY / nRows),(int)( j * sizeX / nCols):(int)(j * sizeX / nCols + sizeX / nCols)]
+        cv2.imshow("e" + str(i) + str(j), roi)
+        cv2.imwrite('fotosTest/_' + str(i) + str(j) + ".jpg", roi)
 
 
 ORANGE_MIN = np.array([5, 50, 50],np.uint8)
@@ -41,6 +53,7 @@ for i, c in enumerate(color):
     plt.plot(hist, color = c)
     plt.xlim([0,256])
     plt.ylim([0,300])
+plt.title("Foto cara rgb")
 plt.show()
 
 

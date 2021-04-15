@@ -58,12 +58,14 @@ def facecircle(image):
                                          maxSize=(200, 200))
 
     for (x, y, w, h) in faces:
-        center_coordinates = x + w // 2, y + h // 2
-        radius = w // 2  # or can be h / 2 or can be anything based on your requirements
+        marginX = int(x / 10)
+        marginY = int(y / 10)
+        #center_coordinates = x + w // 2, y + h // 2
+        #radius = w // 2  # or can be h / 2 or can be anything based on your requirements
         # cv2.circle(foto, center_coordinates, radius, (0, 0, 100), 0)
 
     mask = np.zeros(image.shape, dtype=np.uint8)
-    cv2.circle(mask, center_coordinates, radius, (255, 255, 255), -1)
+    cv2.rectangle(mask,  (x + marginX, y + marginY), (x + w - marginX, y + h - marginY), (255, 255, 255), -1)
 
     # Bitwise-and for ROI
     ROI = cv2.bitwise_and(image, mask)
@@ -75,6 +77,10 @@ def facecircle(image):
     result = ROI[y:y + h, x:x + w]
     mask = mask[y:y + h, x:x + w]
     result[mask == 0] = (255, 255, 255)
+    #Ara aqui vull fer una divisio de sa cara en 5 rectangles
+
+
+
     return result
 
 
