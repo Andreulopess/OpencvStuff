@@ -8,30 +8,32 @@ import os
 
 
 
-image = cv2.imread('Imatges/Mabaix.jpg')
-image = imutils.resize(image,width=800)
-cv2.imshow('inicial', image)
-result= dc.facecircle(image)
+def agafarNas(image):
+    image = imutils.resize(image,width=800)
+    cv2.imshow('inicial', image)
+    result= dc.facecircle(image)
 
-sizeX = result.shape[1]
-sizeY = result.shape[0]
-nRows = 4
-nCols = 1
-for i in range(0, nRows):
-    for j in range(0, nCols):
-        print(j)
-        roi = result[(int) (i * sizeY / nRows):(int)(i * sizeY / nRows + sizeY / nRows),(int)( j * sizeX / nCols):(int)(j * sizeX / nCols + sizeX / nCols)]
-        cv2.imshow("e" + str(i) + str(j), roi)
-        cv2.imwrite('fotosTest/_' + str(i) + str(j) + ".jpg", roi)
+    sizeX = result.shape[1]
+    sizeY = result.shape[0]
+    nRows = 10
+    nCols = 1
+    for i in range(0, nRows):
+        for j in range(0, nCols):
+            print(j)
+            roi = result[(int) (i * sizeY / nRows):(int)(i * sizeY / nRows + sizeY / nRows),(int)( j * sizeX / nCols):(int)(j * sizeX / nCols + sizeX / nCols)]
+            # cv2.imshow("e" + str(i) + str(j), roi)
+            if i == 5:
+                cv2.imwrite('fotosTest/_' + str(i) + str(j) + ".jpg", roi)
 
-
+'''
 ORANGE_MIN = np.array([5, 50, 50],np.uint8)
 ORANGE_MAX = np.array([15, 255, 255],np.uint8)
-
+image = cv2.imread('fotosTest/_50.jpg')
+cv2.imshow('Test', image)
 image = cv2.cvtColor(image,cv2.COLOR_BGR2GRAY)
 hsv_img = cv2.cvtColor(result,cv2.COLOR_BGR2HSV)
 bin = cv2.cvtColor(result,cv2.COLOR_BGR2GRAY)
-cv2.imshow('output2.jpg', bin)
+#cv2.imshow('output2.jpg', bin)
 
 frame_threshed = cv2.inRange(hsv_img, ORANGE_MIN, ORANGE_MAX)
 
@@ -72,12 +74,12 @@ plt.title("Foto grossa")
 plt.xlabel('intensidad de iluminacion')
 plt.ylabel('cantidad de pixeles')
 plt.ylim([0, 10000])
-plt.show()
+#plt.show()
 
 
 
 
 
 
-#cv2.imshow('result', result)
-cv2.waitKey(0)
+
+'''

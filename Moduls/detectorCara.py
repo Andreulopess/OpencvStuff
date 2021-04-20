@@ -72,7 +72,7 @@ def facecircle(image):
 
     # Crop mask and turn background white
     mask = cv2.cvtColor(mask, cv2.COLOR_BGR2GRAY)
-    cv2.imshow('mask', mask)
+    #cv2.imshow('mask', mask)
     x, y, w, h = cv2.boundingRect(mask)
     result = ROI[y:y + h, x:x + w]
     mask = mask[y:y + h, x:x + w]
