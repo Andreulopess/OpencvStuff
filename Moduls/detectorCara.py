@@ -77,9 +77,6 @@ def facecircle(image):
     result = ROI[y:y + h, x:x + w]
     mask = mask[y:y + h, x:x + w]
     result[mask == 0] = (255, 255, 255)
-    #Ara aqui vull fer una divisio de sa cara en 5 rectangles
-
-
 
     return result
 
@@ -90,7 +87,6 @@ def centresFoto(foto):
     :param foto: objeto imagen
     :return: centroX, centroY
     """
-    width, height, e = foto.shape
     faces = faceClassif.detectMultiScale(foto,
                                          scaleFactor=1.1,
                                          minNeighbors=5,

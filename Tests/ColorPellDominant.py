@@ -9,6 +9,11 @@ import os
 
 
 def agafarNas(image):
+    """
+    Retorna rang maxim i minim dun color de pell ente ulls i nas
+    :param image: imatge de la persona
+    :return: maxRange,minRange
+    """
     image = imutils.resize(image,width=800)
     cv2.imshow('inicial', image)
     result= dc.facecircle(image)
@@ -19,11 +24,17 @@ def agafarNas(image):
     nCols = 1
     for i in range(0, nRows):
         for j in range(0, nCols):
-            print(j)
             roi = result[(int) (i * sizeY / nRows):(int)(i * sizeY / nRows + sizeY / nRows),(int)( j * sizeX / nCols):(int)(j * sizeX / nCols + sizeX / nCols)]
             # cv2.imshow("e" + str(i) + str(j), roi)
             if i == 5:
                 cv2.imwrite('fotosTest/_' + str(i) + str(j) + ".jpg", roi)
+                nas = cv2.imread('fotosTest/_50.jpg')
+                nas = imutils.resize(nas, width=400)
+                mitja = np.mean(nas, axis=tuple(range(nas.ndim - 1)))
+                std = np.std(nas, axis=tuple(range(nas.ndim - 1)))
+                maxRange = mitja + 2 * std
+                minRange = mitja - 2 * std;
+    return maxRange,minRange
 
 '''
 ORANGE_MIN = np.array([5, 50, 50],np.uint8)
