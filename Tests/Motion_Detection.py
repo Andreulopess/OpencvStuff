@@ -18,9 +18,14 @@ def moviment(x_inicial, y_incial, x_final, y_final):
 
 
 def checkMoviment(img1, img2):
+    """
+    Funcion que , en una dos imagenes ya filtradas por color piel, busca el contorno mas grande y analiza su movimento en cada imagen
+    :param img1: imagen 1 filtrada
+    :param img2: imagen 2 filtrada
+    :return:
+    """
     # open or read the images
-    img1 = cv2.imread('Ma_abaix.jpg')
-    img2 = cv2.imread('Ma_adalt.jpg')
+
 
 
     # resize the images to speed up processing
@@ -112,12 +117,3 @@ def checkMoviment(img1, img2):
     # wait for key press and then terminate all open windows
     moviment(x1, y1, x2, y2)
 
-
-def main():
-    checkMoviment("Ma_abaix.jpg", "Ma_adalt.jpg")
-    if cv2.waitKey(0) & 0xFF == ord("q"):
-        cv2.destroyAllWindows()
-        exit()
-
-
-main()

@@ -25,7 +25,7 @@ def moviment(x_inicial, y_incial, x_final, y_final):
 yolo = YOLO("MansXarxa/models/cross-hands.cfg", "MansXarxa/models/cross-hands.weights", ["hand"])
 
 #   Carregar foto
-def main(img,img2):
+def busca(img,img2):
     nomFoto = str(img)
 
    # img = cv2.imread("Imatges/Mabaix.jpg")
@@ -33,8 +33,8 @@ def main(img,img2):
 
 
     #   Guardam centres de cara per utilitzar mes tard
-    #centreXImg1, centreYImg1 = dc.centresFoto(img)
-   # centreXImg2, centreYImg2 = dc.centresFoto(img2)
+    centreXImg1, centreYImg1 = dc.centresFoto(img)
+    centreXImg2, centreYImg2 = dc.centresFoto(img2)
 
     # Aïllar persona (Detector persona)
     # ALERTA AMB DIRECCIÓ DINS  Detctor persona
@@ -57,7 +57,7 @@ def main(img,img2):
         cy = int(y2 - hma / 2)
         # Dibuixam rectangle
         cv2.rectangle(crop, (x1primera, y1primera), (x2, y2), (0, 255, 0), 1)
-        #cv2.imshow("Crop1", crop)
+        cv2.imshow("Crop1", crop)
 
         #   Mostram imatge amb rectangle
 
@@ -84,11 +84,11 @@ def main(img,img2):
         cv2.rectangle(crop2, (x1segona, y1segona), (x2, y2), (0, 255, 0), 1)
 
         #   Mostram imatge amb rectangle
-        #cv2.imshow("Crop2", crop2)
+        cv2.imshow("Crop2", crop2)
 
         cv2.line(img, (cx, cy), ( cx2, cy2), (0, 233, 0), 2)
-    '''try:
-       # if (cy>centreYImg1):
+    try:
+       if (cy>centreYImg1):
             print("Per ma esquerra tenim: ")
             moviment(cx, cy, cx2, cy2)
 
@@ -97,10 +97,15 @@ def main(img,img2):
 
     except NameError:
         print("CUIDAO! Variables de posició per fer linia entre mans no definides")
-'''
-    # Mostram a imatge final
-    cv2.imshow(nomFoto, img)
 
+    # Mostram a imatge final
+    #cv2.imshow("nomFoto", img)
+
+
+if __name__ == '__main__':
+    maadalt = cv2.imread("Imatges/t1.png")
+    maabaix = cv2.imread("Imatges/t2.png")
+    busca(maadalt,maabaix)
 
 
 

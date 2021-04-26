@@ -9,7 +9,7 @@ import numpy as np
 
 
 maAdalt = cv2.imread('Imatges/t1.png')
-maAbaix = cv2.imread('Imatges/T2.png')
+maAbaix = cv2.imread('Imatges/t2.png')
 
 maxRange, minRange = cp.agafarNas(maAbaix)
 

@@ -123,7 +123,7 @@ def BGSubSimple(maadalt, lower, upper):
     skinMask = cv2.GaussianBlur(skinMask, (3, 3), 0)
     skinMaadalt = cv2.bitwise_and(frame, frame, mask=skinMask)
 
-    #agafam data
+     #agafam data
     dt = str(datetime.now())
     dt = dt.replace(" ", "_")
     dt= dt.replace(":", "_")
