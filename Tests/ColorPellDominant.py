@@ -10,7 +10,9 @@ import os
 
 def agafarNas(image):
     """
-    Retorna rang maxim i minim dun color de pell ente ulls i nas
+     Funció que retorna el rang mínim i màxim de píxels en una imatge passada per paràmetre.
+     Aqui s'emplea per mirar el rang entre els ulls i el nas.
+     Es divideix la ima
     :param image: imatge de la persona
     :return: maxRange,minRange
     """

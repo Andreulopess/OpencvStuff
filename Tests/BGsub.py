@@ -9,11 +9,13 @@ from datetime import datetime;
 # ---------------------DEFINICI0 DE VARIABLES----------------q
 def BGSub(maadalt, maabaix, lower, upper):
     """
-    Función que, dadas dos fotografias, filtra los pixeles de estas segun el rango
-    :param maadalt:
-    :param maabaix:
-    :param lower:
-    :param upper:
+    Funcio que donades dues fotografies, filtra segons un rang superior i inferior de color de pell.
+     Aplica erosions i dilatacions per així poder juntar els píxels per grups. Cerca trobar una area gran.
+     Funciona per dues fotos
+    :param maadalt: foto 1
+    :param maabaix: foto 2
+    :param lower: foto 3
+    :param upper: foto 4
     :return:
     """
 
@@ -82,35 +84,34 @@ def BGSub(maadalt, maabaix, lower, upper):
         exit()
 
 
-def BGSubSimple(maadalt, lower, upper):
+def BGSubSimple(imatge, lower, upper):
     """
-    Función que, dadas dos fotografias, filtra los pixeles de estas segun el rango
-    :param maadalt:
-    :param maabaix:
-    :param lower:
-    :param upper:
+   funció que filtra segons un rang superior i inferior de color de pell.
+    Aplica erosions i dilatacions per així poder juntar els píxels per grups.
+    Cerca trobar una area gran. Funciona per una foto. La guarda amb data i hora
+    :param imatge: imatge objectiu
+    :param lower: rang inferior
+    :param upper: rang superior
     :return:
     """
 
     # Resize
-    maadalt = imutils.resize(maadalt, width=1200)
+    imatge = imutils.resize(imatge, width=1200)
     # Trobar persona
-    maadalt, xinicial, yinicial = dp.trobarpersona(maadalt)
+    imatge, xinicial, yinicial = dp.trobarpersona(imatge)
     # definim array
     # lower = np.array([0, 10, 60], dtype="uint8")
     # upper = np.array([20, 150, 255], dtype="uint8")
 
     # Tapam primer cara de la persona
-    fd.facecover(maadalt)
-
+    fd.facecover(imatge)
 
     # Modificar mida, troba mes punts
     # No empleam Hsv, directament rgb
     # Determinar els pixels que s'ajusten als arrays
-    frame = imutils.resize(maadalt, width=800)
+    frame = imutils.resize(imatge, width=800)
     skinMask = cv2.inRange(frame, lower, upper)
     cv2.imshow("SkinMask", skinMask)
-
 
     # Aplica erosions i dilatacions
     # Empleant kernel eliptic
@@ -123,18 +124,17 @@ def BGSubSimple(maadalt, lower, upper):
     skinMask = cv2.GaussianBlur(skinMask, (3, 3), 0)
     skinMaadalt = cv2.bitwise_and(frame, frame, mask=skinMask)
 
-     #agafam data
+    # agafam data
     dt = str(datetime.now())
     dt = dt.replace(" ", "_")
-    dt= dt.replace(":", "_")
+    dt = dt.replace(":", "_")
 
     cv2.imwrite('fotosTest/_' + dt + ".jpg", skinMaadalt)
 
     print("Escrit: " + dt)
 
-
-
-# ---------------------DEFINICI0 DE VARIABLES----------------q
+"""
+# ---------------------DEFINICI0 DE VARIABLES----------------
 def BGSub2(maadalt, maabaix, lower, upper):
     maadalt = imutils.resize(maadalt, width=1200)
     maabaix = imutils.resize(maabaix, width=1200)
@@ -194,3 +194,5 @@ def BGSub2(maadalt, maabaix, lower, upper):
 
     cv2.imwrite("fotosTest/_Ma_abaix.jpg", skinMaabaix)
     cv2.imwrite("fotosTest/_Ma_adalt.jpg", skinMaadalt)
+    
+    """

@@ -113,7 +113,7 @@ def cropDretaEsq(foto):
                                          minSize=(30, 30),
                                          maxSize=(200, 200))
     for (x, y, w, h) in faces:
-        centrey = int(y + (w / 2))
+        #centrey = int(y + (w / 2))
         centrex = int(x + (h / 2))
     try:
         dreta = foto[0:height, 0:centrex]
